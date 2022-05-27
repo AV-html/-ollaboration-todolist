@@ -18,7 +18,11 @@ export function Todolist(props: PropsType) {
             </li>
         )
     })
-    
+
+    const showAllHandler = () => {}
+    const showActiveHandler = () => {}
+    const showCompletedHandler = () => {}
+
     return (
         <div>
             <h3>{props.title}</h3>
@@ -32,9 +36,9 @@ export function Todolist(props: PropsType) {
                 </ul>
             </div>
             <div>
-                <button>All</button>
-                <button>Active</button>
-                <button>Completed</button>
+                <button onClick={showAllHandler}>All</button>
+                <button onClick={showActiveHandler}>Active</button>
+                <button onClick={showCompletedHandler}>Completed</button>
             </div>
         </div>
     );
