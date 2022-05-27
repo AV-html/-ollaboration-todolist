@@ -9,9 +9,12 @@ type PropsType = {
 export function Todolist(props: PropsType) {
     
     const techListArray = props.techList.map((t) => {
+        const onClickHandler = () => {
+            console.log('delete')
+        }
         return (
             <li key={t.id}>
-                <button>X</button>
+                <button onClick={onClickHandler}>X</button>
                 <span>{t.title}</span>
                 <input type="checkbox" checked={t.isDone}/>
 
