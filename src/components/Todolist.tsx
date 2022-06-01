@@ -1,9 +1,10 @@
 import React from 'react';
-import {TechType} from '../App';
+import {FilterType, TechType} from '../App';
 
 type PropsType = {
     title: string
     techList: TechType
+    changeFilter: (filter:FilterType) => void
 }
 
 export function Todolist(props: PropsType) {
@@ -19,9 +20,15 @@ export function Todolist(props: PropsType) {
         )
     })
 
-    const showAllHandler = () => {}
-    const showActiveHandler = () => {}
-    const showCompletedHandler = () => {}
+    const showAllHandler = () => {
+        props.changeFilter('all')
+    }
+    const showActiveHandler = () => {
+        props.changeFilter('active')
+    }
+    const showCompletedHandler = () => {
+        props.changeFilter('completed')
+    }
 
     return (
         <div>
