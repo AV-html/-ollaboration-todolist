@@ -38,11 +38,19 @@ function App() {
   })
 
 
+  const deleteTech = (id: string) => {
+    setTechList(techList.filter((t) => t.id !== id))
+  }
+
 
 
   return (
     <div className="App">
-      <Todolist title={'Tech'} techList={todoList} changeFilter={changeFilter}/>
+      <Todolist title={'Tech'}
+                techList={todoList}
+                changeFilter={changeFilter}
+                deleteTech={deleteTech}
+      />
     </div>
   );
 }
