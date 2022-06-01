@@ -10,8 +10,11 @@ export interface Tech {
   isDone: boolean
 }
 
+export type FilterType = 'all' | 'active' | 'completed';
+
 
 function App() {
+  const [filter, setFilter] = useState<FilterType>('all')
   const [techList, setTechList] = useState<TechType>([
     {id: v1(), title: 'React', isDone: true},
     {id: v1(), title: 'Redux', isDone: true},
@@ -24,11 +27,22 @@ function App() {
     {id: v1(), title: 'Python', isDone: false}
   ])
 
+  const changeFilter = (filter:FilterType) => {
+    setFilter(filter);
+  }
+
+  const todoList = techList.filter((item) => {
+    if (filter === 'active') return !item.isDone;
+    if (filter === 'completed') return item.isDone;
+    return item
+  })
+
+
 
 
   return (
     <div className="App">
-      <Todolist title={'Tech'} techList={techList}/>
+      <Todolist title={'Tech'} techList={todoList} changeFilter={changeFilter}/>
     </div>
   );
 }
