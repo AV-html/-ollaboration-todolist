@@ -4,20 +4,20 @@ import {TechType} from '../App';
 type PropsType = {
     title: string
     techList: TechType
+    deleteTech: (id: string) => void
 }
 
 export function Todolist(props: PropsType) {
     
     const techListArray = props.techList.map((t) => {
         const onClickHandler = () => {
-            console.log('delete')
+            props.deleteTech(t.id);
         }
         return (
             <li key={t.id}>
                 <button onClick={onClickHandler}>X</button>
                 <span>{t.title}</span>
                 <input type="checkbox" checked={t.isDone}/>
-
             </li>
         )
     })

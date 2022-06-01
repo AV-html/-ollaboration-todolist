@@ -24,11 +24,15 @@ function App() {
     {id: v1(), title: 'Python', isDone: false}
   ])
 
+  const deleteTech = (id: string) => {
+    setTechList(techList.filter((t) => t.id !== id))
+  }
+
 
 
   return (
     <div className="App">
-      <Todolist title={'Tech'} techList={techList}/>
+      <Todolist title={'Tech'} techList={techList} deleteTech={deleteTech}/>
     </div>
   );
 }
